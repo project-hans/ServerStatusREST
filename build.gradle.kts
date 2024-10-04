@@ -27,9 +27,8 @@ loom {
     splitEnvironmentSourceSets()
 
     mods {
-        register("serverstatusrest") {
+        register("ServerStatusREST") {
             sourceSet("main")
-            sourceSet("client")
         }
     }
 }
@@ -51,7 +50,7 @@ dependencies {
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
-
+    // Database
     // REST stuff
     implementation("io.ktor:ktor-client-cio:${project.property("ktor_version")}")?.let{include(it)}
     implementation("io.ktor:ktor-server-core:${project.property("ktor_version")}")?.let{include(it)}
@@ -59,6 +58,7 @@ dependencies {
     implementation("io.ktor:ktor-server-content-negotiation:${project.property("ktor_version")}")?.let{include(it)}
     implementation("io.ktor:ktor-serialization-gson:${project.property("ktor_version")}")?.let{include(it)}
     implementation("io.ktor:ktor-client-content-negotiation:${project.property("ktor_version")}")?.let{include(it)}
+
 }
 
 tasks.processResources {

@@ -11,7 +11,7 @@ import kotlinx.coroutines.runBlocking
 data class ServerResponse(val servername: String)
 
 public class CustomHttpClient {
-    var OPERATOR_URL: String =System.getenv("OPERATOR_URL") ?: "main"
+    var OPERATOR_URL: String =System.getenv("OPERATOR_URL") ?: "localhost:6969/servername"
     private val client = HttpClient(CIO) {
         install(ContentNegotiation) {
             gson()
