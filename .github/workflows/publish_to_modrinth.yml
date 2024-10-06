@@ -60,7 +60,7 @@ jobs:
       - name: Publish JAR Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ServerStatusREST
+          name: serverstatusrest
           path: build/libs/*.jar
 
       # Fetch the latest GitHub release including the release notes
@@ -80,8 +80,8 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ env.LATEST_RELEASE_URL }}
-          asset_path: build/libs/ServerStatusREST-${{ env.VERSION }}.jar
-          asset_name: ServerStatusREST-${{ env.VERSION }}.jar
+          asset_path: build/libs/serverstatusrest-${{ env.VERSION }}.jar
+          asset_name: serverstatusrest-${{ env.VERSION }}.jar
           asset_content_type: application/java-archive
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -92,6 +92,6 @@ jobs:
         with:
           token: '${{ secrets.MODRINTH_TOKEN }}' # You need to create this secret in your repository settings
           project: fJaE5oAe # Replace with your project id/slug
-          file: 'build/libs/ServerStatusREST-${{ env.VERSION }}.jar' # Make sure that this matches the file name of your .jar
+          file: 'build/libs/serverstatusrest-${{ env.VERSION }}.jar' # Make sure that this matches the file name of your .jar
           changelog: ${{ env.RELEASE_NOTES }}
           loaders: 'fabric, quilt' # A list of your supported loaders
