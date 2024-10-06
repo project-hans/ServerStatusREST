@@ -52,12 +52,11 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:${project.property("fabric_version")}")
     // Database
     // REST stuff
-    implementation("io.ktor:ktor-client-cio:${project.property("ktor_version")}")?.let{include(it)}
     implementation("io.ktor:ktor-server-core:${project.property("ktor_version")}")?.let{include(it)}
     implementation("io.ktor:ktor-server-netty:${project.property("ktor_version")}")?.let{include(it)}
     implementation("io.ktor:ktor-server-content-negotiation:${project.property("ktor_version")}")?.let{include(it)}
     implementation("io.ktor:ktor-serialization-gson:${project.property("ktor_version")}")?.let{include(it)}
-    implementation("io.ktor:ktor-client-content-negotiation:${project.property("ktor_version")}")?.let{include(it)}
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 
 }
 

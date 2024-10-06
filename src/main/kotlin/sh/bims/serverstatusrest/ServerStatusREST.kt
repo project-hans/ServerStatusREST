@@ -16,7 +16,7 @@ import net.minecraft.server.MinecraftServer
 class ServerStatusREST : ModInitializer {
     private var server: MinecraftServer? = null
     var SERVER_NODE: String = System.getenv("SERVER_NODE") ?: "main"
-    var SERVER_NAME: String = CustomHttpClient().getServerName() ?: "server"
+    var SERVER_NAME: String = System.getenv("SERVER_NAME") ?: "server"
 
 
 
@@ -54,6 +54,10 @@ class ServerStatusREST : ModInitializer {
                 }
                 get("/coffee") {
                     call.respond(HttpStatusCode.fromValue(418))
+                }
+                post("/softstop"){
+                    call.respond(HttpStatusCode.OK)
+                    server?.stop(true)
                 }
             }
         }.start(wait = false)
