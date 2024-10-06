@@ -56,7 +56,7 @@ dependencies {
     implementation("io.ktor:ktor-server-netty:${project.property("ktor_version")}")?.let{include(it)}
     implementation("io.ktor:ktor-server-content-negotiation:${project.property("ktor_version")}")?.let{include(it)}
     implementation("io.ktor:ktor-serialization-gson:${project.property("ktor_version")}")?.let{include(it)}
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
 
 }
 

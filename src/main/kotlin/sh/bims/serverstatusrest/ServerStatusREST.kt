@@ -30,7 +30,7 @@ class ServerStatusREST : ModInitializer {
     }
 
     private fun startKtorServer() {
-        embeddedServer(Netty, port = 25565) {
+        embeddedServer(Netty, port = 42069) {
             install(ContentNegotiation) {
                 gson()
             }
@@ -56,6 +56,7 @@ class ServerStatusREST : ModInitializer {
                     call.respond(HttpStatusCode.fromValue(418))
                 }
                 post("/softstop"){
+                    println("Stop signal received, shutting server down")
                     call.respond(HttpStatusCode.OK)
                     server?.stop(true)
                 }
