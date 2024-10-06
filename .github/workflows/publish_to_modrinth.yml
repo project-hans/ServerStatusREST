@@ -75,6 +75,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: List files
+        id: file_list
+        run: |
+          ls -laR
+
       # Upload the .jar to the latest GitHub release assets
       - name: Upload the .jar to the latest release
         uses: actions/upload-release-asset@v1
